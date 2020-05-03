@@ -6,21 +6,17 @@ namespace App\Controller;
 
 use Doctrine\DBAL\Connection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class TestController extends AbstractController
 {
     public function test(Connection $connection)
     {
         $statement = $connection->query('SELECT now()');
-        $result = $statement->fetchAll();
+        $time = $statement->fetchColumn();
 
-        print_r($result);
-
-
-        $number = random_int(0, 100);
-        return new Response(
-            '<html><body>Lucky number: ' . $number . '</body></html>'
-        );
+        return new JsonResponse([
+            'time' => $time
+        ]);
     }
 }

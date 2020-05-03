@@ -3,5 +3,5 @@
 #    controller: App\Controller\DefaultController::index
 
 test:
-  path: /test/test
+  path: /
   controller: App\Controller\TestController::test
