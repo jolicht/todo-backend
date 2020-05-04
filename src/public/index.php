@@ -6,10 +6,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 require dirname(__DIR__).'/config/bootstrap.php';
 
-/** @todo replace by non-dirty solution */
-header('Access-Control-Allow-Origin: http://localhost:9082');
-header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
-
 if ($_SERVER['APP_DEBUG']) {
     umask(0000);
 
